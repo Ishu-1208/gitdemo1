@@ -1,0 +1,25 @@
+void setup()
+{
+Serial.begin(115200);
+pinMode(29,OUTPUT);
+pinMode(38,OUTPUT);
+}
+void loop()
+{
+int gassensor=analogRead(23);
+if(gassensor<2500)
+{
+digitalWrite(29,HIGH);
+digitalWrite(38,HIGH);
+Serial.println("BRUSTING ALARM");
+Serial.println(gassensor);
+delay(100);
+}
+else
+{
+digitalWrite(29,LOW);
+digitalWrite(38,LOW);
+Serial.println("NO BRUSTING");
+delay(100);
+}
+}
